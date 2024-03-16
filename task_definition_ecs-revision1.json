@@ -1,0 +1,127 @@
+{
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:604623258149:task-definition/m4-production:4",
+    "containerDefinitions": [
+        {
+            "name": "m4-production-1",
+            "image": "604623258149.dkr.ecr.us-east-1.amazonaws.com/m4-production:dc6272f7fc277ab398cadd2311523a262ff1aafa",
+            "cpu": 1024,
+            "memory": 1024,
+            "memoryReservation": 1024,
+            "portMappings": [
+                {
+                    "name": "m4-production-1-8001-tcp",
+                    "containerPort": 8001,
+                    "hostPort": 8001,
+                    "protocol": "tcp",
+                    "appProtocol": "http"
+                }
+            ],
+            "essential": true,
+            "environment": [
+                {
+                    "name": "POSTGRES_USER",
+                    "value": "postgres"
+                },
+                {
+                    "name": "JWT_ALGORITHM",
+                    "value": "HS256"
+                },
+                {
+                    "name": "PAYMENTS_SERVICE",
+                    "value": "http://m4-payments-alb-1685891886.us-east-1.elb.amazonaws.com:8002"
+                },
+                {
+                    "name": "POSTGRES_HOST",
+                    "value": "m4-production-db.c10ffknjsfsb.us-east-1.rds.amazonaws.com"
+                },
+                {
+                    "name": "JWT_SECRET",
+                    "value": "Pe3RD5gYwS0YTXo9L5rzW4PmIC327WJh"
+                },
+                {
+                    "name": "ENVIRONMENT",
+                    "value": "prod"
+                },
+                {
+                    "name": "POSTGRES_PASS",
+                    "value": "all962110"
+                },
+                {
+                    "name": "ORDERS_SERVICE",
+                    "value": "http://m4-orders-alb-1304370311.us-east-1.elb.amazonaws.com:8003"
+                },
+                {
+                    "name": "POSTGRES_DB",
+                    "value": "postgres"
+                }
+            ],
+            "mountPoints": [],
+            "volumesFrom": [],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-create-group": "true",
+                    "awslogs-group": "/ecs/m4-production",
+                    "awslogs-region": "us-east-1",
+                    "awslogs-stream-prefix": "ecs"
+                }
+            }
+        }
+    ],
+    "family": "m4-production",
+    "taskRoleArn": "arn:aws:iam::604623258149:role/my-ecs-execution-role",
+    "executionRoleArn": "arn:aws:iam::604623258149:role/ecsTaskExecutionRole",
+    "networkMode": "awsvpc",
+    "revision": 4,
+    "volumes": [],
+    "status": "ACTIVE",
+    "requiresAttributes": [
+        {
+            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+        },
+        {
+            "name": "ecs.capability.execution-role-awslogs"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.ecr-auth"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.21"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.task-iam-role"
+        },
+        {
+            "name": "ecs.capability.execution-role-ecr-pull"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+        },
+        {
+            "name": "ecs.capability.task-eni"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
+        }
+    ],
+    "placementConstraints": [],
+    "compatibilities": [
+        "EC2",
+        "FARGATE"
+    ],
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "1024",
+    "memory": "3072",
+    "runtimePlatform": {
+        "cpuArchitecture": "X86_64",
+        "operatingSystemFamily": "LINUX"
+    },
+    "registeredAt": "2024-01-29T21:11:27.807Z",
+    "registeredBy": "arn:aws:iam::604623258149:root",
+    "tags": []
+}
