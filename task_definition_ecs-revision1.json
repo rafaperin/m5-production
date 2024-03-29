@@ -1,9 +1,9 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-east-1:604623258149:task-definition/m5-production:1",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:604623258149:task-definition/m5-production:3",
     "containerDefinitions": [
         {
             "name": "m5-production",
-            "image": "604623258149.dkr.ecr.us-east-1.amazonaws.com/m5-production:v1",
+            "image": "604623258149.dkr.ecr.us-east-1.amazonaws.com/m5-production:a382abee6ac463a7c18bd7364e11c0c8328272f6",
             "cpu": 0,
             "portMappings": [
                 {
@@ -30,7 +30,7 @@
                 },
                 {
                     "name": "PAYMENTS_SERVICE",
-                    "value": "http://m5-payments-alb-200423424.us-east-1.elb.amazonaws.com"
+                    "value": "http://m5-payments-alb-200423424.us-east-1.elb.amazonaws.com:8002"
                 },
                 {
                     "name": "POSTGRES_HOST",
@@ -54,7 +54,7 @@
                 },
                 {
                     "name": "ORDERS_SERVICE",
-                    "value": "http://m5-orders-alb-677782790.us-east-1.elb.amazonaws.com"
+                    "value": "http://m5-orders-alb-677782790.us-east-1.elb.amazonaws.com:8003"
                 },
                 {
                     "name": "POSTGRES_DB",
@@ -62,20 +62,18 @@
                 },
                 {
                     "name": "CUSTOMERS_SERVICE",
-                    "value": "http://m5-customers-alb-538654690.us-east-1.elb.amazonaws.com"
+                    "value": "http://m5-customers-alb-538654690.us-east-1.elb.amazonaws.com:8004"
                 }
             ],
-            "environmentFiles": [],
             "mountPoints": [],
             "volumesFrom": [],
-            "ulimits": [],
             "systemControls": []
         }
     ],
     "family": "m5-production",
     "executionRoleArn": "arn:aws:iam::604623258149:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 1,
+    "revision": 3,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -106,7 +104,7 @@
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2024-03-17T15:53:47.262Z",
+    "registeredAt": "2024-03-17T18:45:48.078Z",
     "registeredBy": "arn:aws:iam::604623258149:root",
     "tags": []
 }
